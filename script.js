@@ -27,6 +27,3 @@ var questionBank= [
     },
 ]
 
-var question=document.getElementById('question');
-var quizContainer=document.getElementById('quiz-container');
-var scorecard=document.getElementById('scorecard');

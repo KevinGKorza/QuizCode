@@ -1,1 +1,64 @@
+*body{
+    height: 100vh;
+    width: 100vw;
+    margin: 5;
+    padding: 5;
+}
+
+.Panel{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    height: 100vh;
+}
+
+.QuestionBox{
+   background-color: lavender;
+   display: flex;
+   justify-content: space-around;
+   margin: 20px;
+   width: 80vw;
+   height: 20vh;
+}
+
+.Option{
+    background-color: azure;
+    border-radius: 50%;
+    font-size: medium;
+    padding: 30px;
+    width: 15;
+    height: 10;
+}
+
+.Option:hover{
+    background-color: dodgerblue;
+}
+
+.Buttons{
+    background-color: cornflowerblue;
+    justify-content: space-around;
+    width:auto;
+    height:auto;
+    padding: 10px;
+    display: flex;
+    margin: 20px;
+}
+
+.Answer{
+    width: auto;
+    height: auto;
+    padding: 10px;
+    font-size: medium;
+    background-color: lightyellow;
+
+}
+
+.NextQuestion{
+    width: auto;
+    height: auto;
+    padding: 10px;
+    font-size: medium;
+    background-color: lightgreen;
+
+}
 

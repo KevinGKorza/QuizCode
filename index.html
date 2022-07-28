@@ -1,33 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-</head>
-<body onload="setTimeout(Timer,150000)">
-	<div class="panel">
-		<div class="result">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Your Knowledge</title>
 
+<!--CSS file like-->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+      <img src="" alt="img" id="img" class="img">
+	  <h1 id="title">Quiz</h1>
+
+	  <!--Quiz Container goes here-->
+	  <div id="quiz-container">
+		<!--Question container goes here -->
+		<div class="questions">
+			<h2 id="question"></h2>
+			<o1 type="A">
+				<li class="option"><span 
+					id="option0"></span></li>
+				<li class="option"><span 
+					id="option1"></span></li>
+				<li class="option"><span 
+					id="option2"></span></li>
+				<li class="option"><span 
+					id="option3"></span></li>
+			</o1>
+			<h4 id="stat"></h4>
 		</div>
-		<div class="question-container" id="question">
-			Question goes here.
+
+		<div class="buttons">
+			<button type="button"
+			class="next"></button>
 		</div>
-		<div class="option-container">
-			<button class="option" onclick="" id="op1" >option1</button>
-	
-			<button class="option" id="op2" >option2</button>
-	
-			<button class="option" id="op3">option3</button>
-	
-			<button class="option" id="op4">option4</button>
+
+		<!-- scoreboard section goes here-->
+		<div id="scoreboard">
+			<img src="" alt="" 
+        <h2 id="score-title">Your Score</h2>
+		<h2 id="score"></h2>
+		<button type="button" 
+		id="score-btn">Back to the Quiz</button>
+		<button type="button" 
+		id="check-answer">Check Your Answer</button>
 		</div>
-		<div class="navigation">
-			<button class="evaluate">Evaluate</button>
-			<button class="next">Next</button>
+
+		<!-- Your Answer Section-->
+		<div id="answerBank">
+			<h2>Answers :</h2>
+			<ol type="1">
+
+			</ol>
+		    <button type="button" 
+		    id="score-btn">Back to the Quiz</button>
 		</div>
-	</div>
+
+	<!--javascript file goes here-->	
 	<script src="script.js"></script>
 </body>
 </html>

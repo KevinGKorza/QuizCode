@@ -1,64 +1,77 @@
-*body{
-    height: 100vh;
-    width: 100vw;
-    margin: 5;
-    padding: 5;
+body{
+	padding: 0;
+	margin: 0;	
+	width:100vw;
+	height: 100vh;	
+}
+.panel{
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.question-container{
+	margin: 10px;
+	padding: 5px;
+	width: 80vw;
+	height: 10vh;
+	background-color: #c7dddf;
+	font-size: x-large;
+	text-align: center;
+	
+}
+.result{
+	margin: 10px;
+	padding: 5px;
+	width:80vw;
+	height: 10vh;
+	text-align: center;
+	font-size: 50px;
+	
+}
+.option-container{
+	display: flex;
+	justify-content: space-around;
+	margin: 10px;
+	padding: 5px;
+	width: 80vw;
+	height: 20vh;
+	background-color: #9eb1b3;
+		
+}
+.option{	
+	padding: 10px;
+	width: 15vw;
+	height: 10vh;
+	font-size: larger;
+	background-color: lightskyblue;
+	border-radius: 25%;
+}
+.option:hover{
+	background-color: lightgoldenrodyellow;
+}
+.navigation{
+	width: 80vw;
+	height: 10vh;
+	margin: 10px;
+	padding: 5px;
+	display: flex;
+	justify-content: space-around;
+	background-color:#c7dddf;
 }
 
-.Panel{
-    align-items: center;
-    flex-direction: column;
-    display: flex;
-    height: 100vh;
+.evaluate,.next{
+	width:30vw;
+	height: 8vh;
+	padding: 5px;
+	font-size: larger;
 }
-
-.QuestionBox{
-   background-color: lavender;
-   display: flex;
-   justify-content: space-around;
-   margin: 20px;
-   width: 80vw;
-   height: 20vh;
+.evaluate{
+	
+	background-color: #50DBB4;
 }
-
-.Option{
-    background-color: azure;
-    border-radius: 50%;
-    font-size: medium;
-    padding: 30px;
-    width: 15;
-    height: 10;
+.next{
+	color: white;
+	background-color: #BF3325;
 }
-
-.Option:hover{
-    background-color: dodgerblue;
-}
-
-.Buttons{
-    background-color: cornflowerblue;
-    justify-content: space-around;
-    width:auto;
-    height:auto;
-    padding: 10px;
-    display: flex;
-    margin: 20px;
-}
-
-.Answer{
-    width: auto;
-    height: auto;
-    padding: 10px;
-    font-size: medium;
-    background-color: lightyellow;
-
-}
-
-.NextQuestion{
-    width: auto;
-    height: auto;
-    padding: 10px;
-    font-size: medium;
-    background-color: lightgreen;
-
-}
-

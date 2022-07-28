@@ -1,62 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Your Knowledge</title>
-
-<!--CSS file like-->
-<link rel="stylesheet" href="style.css">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-      <img src="" alt="img" id="img" class="img">
-	  <h1 id="title">Quiz</h1>
+    <div class="container">
+        <div class="quiz-box">
+            <div id="quiz">
+                <h1>Test Your Knowldege</h1>
+                <div class="quiz-header">
+                    <p id="progress">Question x of y</p>
+                    <p id="count-down"></p>
+                </div>
+                <p id="question"></p>
 
-	  <!--Quiz Container goes here-->
-	  <div id="quiz-container">
-		<!--Question container goes here -->
-		<div class="questions">
-			<h2 id="question"></h2>
-			<o1 type="A">
-				<li class="option"><span 
-					id="option0"></span></li>
-				<li class="option"><span 
-					id="option1"></span></li>
-				<li class="option"><span 
-					id="option2"></span></li>
-				<li class="option"><span 
-					id="option3"></span></li>
-			</o1>
-			<h4 id="stat"></h4>
-		</div>
-
-		<div class="buttons">
-			<button type="button"
-			class="next"></button>
-		</div>
-
-		<!-- scoreboard section goes here-->
-		<div id="scoreboard">
-			<img src="" alt="" 
-        <h2 id="score-title">Your Score</h2>
-		<h2 id="score"></h2>
-		<button type="button" 
-		id="score-btn">Back to the Quiz</button>
-		<button type="button" 
-		id="check-answer">Check Your Answer</button>
-		</div>
-
-		<!-- Your Answer Section-->
-		<div id="answerBank">
-			<h2>Answers :</h2>
-			<ol type="1">
-
-			</ol>
-		    <button type="button" 
-		    id="score-btn">Back to the Quiz</button>
-		</div>
-
-	<!--javascript file goes here-->	
-	<script src="script.js"></script>
-</body>
-</html>
+                <div class="buttons">
+                    <button class="btn" id="btn1">
+                        A. <span id="choice1"></span>
+                        </button>
+                    <button class="btn" id="btn2">
+                        B. <span id="choice2"></span>
+                        </button>
+                    <button class="btn" id="btn3">
+                        C. <span id="choice3"></span>
+                        </button>    
+                    <button class="btn" id="btn4">
+                        D. <span id="choice4"></span>
+                        </button>
+                </div>
+                <hr>
+                <footer>
+                    <p>Coding Bootcamp Quiz App</p>
+                </footer>
+            </div>
+        </div>
+    </div>

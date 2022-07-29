@@ -1,91 +1,113 @@
-//Create a quiz class
-class Quiz {
-    constructor(questions) {
-        this.score = 0;
-        this.questions = questions;
-        this.questionIndex = 0;
-    }
-
-    getQuestionIndex() {
-        return this.questions[this.questionIndex];
-    }
-
-    guess(answer) {
-     if (this.getQuestionIndex().isCorrectAnswer(answer)) {
-        this.score++
-     }
-     this.questionIndex++;
-    }
-
-    isEnded(){
-        return this.questionIndex === this.questions.length;
-    }
+*.Container{
+max-width: 900px;
+margin: 0 auto;
+padding: 0 2rem;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
 }
 
-//Create your question class
-class Question {
-    constructor(text,choices,answer) {
-        this.text = text;
-        this.choices = choices;
-        this.answer = answer;
-    }
-
-    isCorrectAnswer(choice) {
-        return this.answer === choice;
-    }
+.box{
+    width: 600px;
+    margin: 0 auto;
+    background-color: azure;
+    padding: 1rem 5rem 5rem 5rem;
+    border: 4px solid crimson;
+    border-radius: 30px;
 }
 
-//Your Questions 
-function displayQuestion() {
-    if (Quiz.isEnded()) {
-        showScores();
-    } else {
-       // show question
-       let questionElement =document.getElementById("question");
-       questionElement.innerHTML = quiz.getQuestionIndex().text;
-
-       // show options
-       let choices = quiz.getQuestionIndex().choices;
-       for (let i = 0; i < choices.length; i++) {
-            let choiceElement = document.getElementById("choice + i");
-            choiceElement.innerHTML = choices[i];
-            guess("btn" + i, choices[i]);
-       }
-
-       showProgress();
-    }
-};
-
-//Create Guess Function 
-function guess(id, guess) {
-    let button = document.getElementById(id);
-    button.onclick = function() {
-        quiz.guess(guess);
-        displayQuestion();
-    }
+.box h1{
+    background-color: lightblue;
+    font-size: 3rem;
+    text-align: center;
+    color: crimson;
+    padding: 1rem 0;
+    width: 100%;
+    border-radius: 30px;
 }
 
-//show quiz progress
-function showProgress() {
-    let currentQuestionNumber = quiz.questionIndex + 1;
-    let progressElement = document.getElementById("progress");
-    progressElement.innerHTML = 
-    'Question ${currentQuestionNumber} of ${quiz.question.length}';
+.Appheader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-//Show score 
-function showScores() {
- let quizEndHTML =
- '
- <h1>Quiz Completed</h1>
- <h2 id="score">Your Score: ${quiz.score} of ${quiz.question.length}</h2>
- <div class="quiz-repeat">
-    <a href="index.html">Take Quiz Again</a>
-
- </div>
- ';
- let quizElement = document.getElementById("quiz");
- quizElement.innerHTML = quizEndHTML;
+.Appheader #Progression{
+    color:crimson;
+    font-size: 2.8rem;
+    font-weight: 800;
 }
 
-//Create your quiz questions 
+.Appheader #countdown{
+    font-size: 2.8rem;
+    font-weight: 800;
+    background-color: crimson;
+    padding: 4px;
+    margin: 1px;
+    color: white
+}
+
+.box #Question{
+    font-size: 3rem;
+    font-weight: 700;
+    color: crimson;
+    border: 1px solid blue;
+    border-width: 1px 0;
+    padding: 5px 0;
+}
+
+.Buttons{
+    margin: 1.5rem 0 4rem 0;
+}
+
+.button {
+    text-align: left;
+    background-color: wheat;
+    width: 100%;
+    font-size: 2.0rem;
+    color: crimson;
+    border: 2px solid crimson;
+    border-radius: 6px;
+    margin: 4px 0;
+    padding: 1rem;
+}
+
+.button:hover{
+    cursor: pointer;
+    background-color: crimson;
+    color: white;
+}
+
+.button:active{
+    background-color: white;
+}
+
+#score{
+    color:dodgerblue;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 5rem;
+}
+
+.app-repeat{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.app-repeat a{
+    font-size: 2rem;
+    font-weight: 600;
+    color: dodgerblue;
+    text-decoration: none;
+    background-color: crimson;
+    padding:1rem;
+    border-radius: 6px;
+    transition: all .3s;
+}
+
+.app-repeat a:hover{
+    background-color: crimson;
+}
+
+

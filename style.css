@@ -72,3 +72,40 @@ height: 100vh;
     margin: 4px 0;
     padding: 1rem;
 }
+
+.btn:hover{
+    cursor: pointer;
+    background-color: crimson;
+    color: white;
+}
+
+.btn:active{
+    background-color: white;
+}
+
+#score{
+    color:dodgerblue;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 5rem;
+}
+
+.quiz-repeat{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.quiz-repeat a{
+    font-size: 2rem;
+    font-weight: 600;
+    color: dodgerblue;
+    text-decoration: none;
+    background-color: crimson;
+    padding:1rem;
+    border-radius: 6px;
+    transition: all .3s;
+}
+
+.quiz-repeat a:hover{
+    background-color: crimson;
+}

@@ -1,113 +1,140 @@
-*.Container{
-max-width: 900px;
-margin: 0 auto;
-padding: 0 2rem;
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
+//Remember variables
+//
+
+
+
+
+class Quiz {
+    constructor(questions) {
+        this.score = 0;
+        this.questions = questions;
+        this.questionIndex = 0;
+    }
+
+    getQuestionIndex() {
+        return this.questions[this.questionIndex];
+    }
+
+    guess(answer) {
+     if (this.getQuestionIndex().isCorrectAnswer(answer)) {
+        this.score++
+     }
+     this.questionIndex++;
+    }
+
+    isEnded(){
+        return this.questionIndex === this.questions.length;
+    }
 }
 
-.box{
-    width: 600px;
-    margin: 0 auto;
-    background-color: azure;
-    padding: 1rem 5rem 5rem 5rem;
-    border: 4px solid crimson;
-    border-radius: 30px;
+//Create your question class
+class Question {
+    constructor(text,choices,answer) {
+        this.text = text;
+        this.choices = choices;
+        this.answer = answer;
+    }
+
+    isCorrectAnswer(choice) {
+        return this.answer === choice;
+    }
 }
 
-.box h1{
-    background-color: lightblue;
-    font-size: 3rem;
-    text-align: center;
-    color: crimson;
-    padding: 1rem 0;
-    width: 100%;
-    border-radius: 30px;
+//Your Questions 
+function displayQuestion() {
+    if (quiz.isEnded()) {
+        showScores();
+    } else {
+       // show question
+       let questionElement =document.getElementById("Question");
+       questionElement.innerHTML = quiz.getQuestionIndex().text;
+
+       // show options
+       let choices = quiz.getQuestionIndex().choices;
+       for (let i = 0; i < choices.length; i++) {
+            let choiceElement = document.getElementById("choice + i");
+            choiceElement.innerHTML = choices[i];
+            guess("button" + i, choices[i]);
+       }
+
+       showProgress();
+    }
+};
+
+//Create Guess Function 
+function guess(id, guess) {
+    let button = document.getElementById(id);
+    button.onclick = function() {
+        quiz.guess(guess);
+        displayQuestion();
+    }
 }
 
-.Appheader{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+//show quiz progress
+function showProgress() {
+    let currentQuestionNumber = quiz.questionIndex + 1;
+    let progressElement = document.getElementById("progress");
+    progressElement.innerHTML = 
+    'Question ${currentQuestionNumber} of ${quiz.questions.length}';
 }
 
-.Appheader #Progression{
-    color:crimson;
-    font-size: 2.8rem;
-    font-weight: 800;
+//Show score 
+function showScores() {
+ let quizEndHTML =
+ `
+ <h1>Quiz Completed</h1>
+ <h2 id='score'> Your scored: ${quiz.score} of ${quiz.questions.length}</h2>
+ <div class="quiz-repeat">
+     <a href="index.html">Take Quiz Again</a>
+ </div>
+ `;
+ let quizElement = document.getElementById("quiz");
+ quizElement.innerHTML = quizEndHTML;
 }
 
-.Appheader #countdown{
-    font-size: 2.8rem;
-    font-weight: 800;
-    background-color: crimson;
-    padding: 4px;
-    margin: 1px;
-    color: white
+//Create your quiz questions 
+let questions = [
+new Question(
+    "What does LIFO stand for?", ["Lizard In Forest Output", "Luke I'm Finally Out", "Lady Is Fine Okay", "Last In First Out"], "Last In First Out"
+),
+new Question(
+    "What is the short way of saying HyperText Markup Language?", ["HTML", "ABCD", "1234", "LRUD"], "HTML"
+),
+new Question(
+    "In a computer, where does most processing take place in?", ["Start Button", "CPU", "Desktop", "When you unplug your computer"], "CPU"
+),
+new Question(
+    "Who is the Father of Computers?", ["Steve Jobs", "Bill Gates", "Charles Babbage", "Steve Wozniak"], "Charles Babbage"
+),
+
+];
+
+//initialize the quiz 
+let quiz = new Quiz(questions);
+
+//display questions
+displayQuestion();
+
+//Create a time variable
+let time = 10;
+let appTime = time * 60 * 60;
+appTime = appTime / 60;
+
+let countdown = document.getElementById("countdown");
+
+function countdownStart() {
+    let countTime = setInterval(function(){
+      if (countTime <= 0) {
+        clearInterval(countTime);
+        showScores();
+
+      } else {
+        countTime--;
+        let sec = Math.floor(appTime % 60);
+        let min = Math.floor(appTime / 60) % 60;
+        countdown.innerHTML = `TIME: ${min} : ${sec}`;
+      }
+    }, 1000);
 }
 
-.box #Question{
-    font-size: 3rem;
-    font-weight: 700;
-    color: crimson;
-    border: 1px solid blue;
-    border-width: 1px 0;
-    padding: 5px 0;
-}
-
-.Buttons{
-    margin: 1.5rem 0 4rem 0;
-}
-
-.button {
-    text-align: left;
-    background-color: wheat;
-    width: 100%;
-    font-size: 2.0rem;
-    color: crimson;
-    border: 2px solid crimson;
-    border-radius: 6px;
-    margin: 4px 0;
-    padding: 1rem;
-}
-
-.button:hover{
-    cursor: pointer;
-    background-color: crimson;
-    color: white;
-}
-
-.button:active{
-    background-color: white;
-}
-
-#score{
-    color:dodgerblue;
-    text-align: center;
-    font-size: 3rem;
-    margin-bottom: 5rem;
-}
-
-.app-repeat{
-    text-align: center;
-    margin: 0 auto;
-}
-
-.app-repeat a{
-    font-size: 2rem;
-    font-weight: 600;
-    color: dodgerblue;
-    text-decoration: none;
-    background-color: crimson;
-    padding:1rem;
-    border-radius: 6px;
-    transition: all .3s;
-}
-
-.app-repeat a:hover{
-    background-color: crimson;
-}
-
-
+startCountdown();
